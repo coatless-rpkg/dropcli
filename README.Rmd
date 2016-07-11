@@ -60,24 +60,14 @@ The commands available via the Dropbox CLI are as follows:
 
 The seemingly rapid development of this interface was inspired by [Michael Levy's UseR2016 Talk](http://michaellevy.name/blog/useR-talk-on-teaching-R/) ([See the part at 7:20](https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/Teaching-R-to-200-people-in-a-week#time=07m20s)) that details live code piping from the instructor's computer.
 
-This alleviated my concerns for students not being able to:
+The idea presented was very straightforward: **Provide students with a 
+direct link to the code file that updates upon every save done by the instructor.** 
+
+The proposed approach alleviated my concerns for students not being able to:
 
 1. See the code being typed during [STAT 385 @ UIUC](http://stat385.thecoatlessprofessor.com/);
 2. Type code sufficiently fast;
-3. Avoid the sitting five feet from me while checking [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/)
+3. Avoid sitting five feet from me while checking their thousands of [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/)
 
-The idea presented was very straightforward: **Provide students with a 
-direct link to the code file that updates upon every save done by the file editor.** 
-
-To do that, there are a few things we need:
-
-1. A Linux machine ([No support for CLI exists on OS X or Windows](http://superuser.com/questions/678925/using-dropbox-from-the-command-line-on-osx))
-2. RStudio Server (Pro preferred)
-3. An obscure Dropbox knowledge base article entitled [How do I force a file or folder to download or render on dropbox.com?](https://www.dropbox.com/en/help/201)
-4. `dropcli`
-
-Alternatively, you can use a local Dropbox install and **manually** go through the
-process of enabling a Public document shared URL. Though, I found this to be
-the easier approach as I run the [STATS@UIUC Online Analytical Environment](https://rstudio.stat.illinois.edu/).
 
 The rest is history... 
