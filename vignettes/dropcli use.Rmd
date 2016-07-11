@@ -1,0 +1,170 @@
+---
+title: "Using `dropcli`"
+author: "James Joseph Balamuta"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using dropcli}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Overview
+
+This document contains a brief overview of the features of `dropcli` and how
+to use these features. First, we discuss software requirements. Secondly, we
+address the need to install the software. Third, we address how to use it.
+Fourth, we provide a teaching example.
+
+# Package Requirements
+
+In order to use `dropcli`, you must have:
+
+1. Linux based operating system
+2. R
+3. Dropbox account
+
+Unfortunately, the linux OS requirement is not negotiable. Principally, the CLI provided by Dropbox's [dropbox.py interface](https://www.dropbox.com/en/help/9192) is only available on Linux. For details, please see [No support for CLI exists on OS X or Windows](http://superuser.com/questions/678925/using-dropbox-from-the-command-line-on-osx).
+
+If you need a package for multiple platforms, please see the [rdrop2](https://github.com/karthik/rdrop2) by [Karthik Ram](https://github.com/karthik/). This package uses Dropbox's WebAPI via OAuth
+instead of an operating system specific install. The downside to this approach
+is you *must* initiate the push instead of having a background process take care
+of it.
+
+# Installation
+
+To install Dropbox's [dropbox.py interface](https://www.dropbox.com/en/help/9192),
+there are two options:
+
+1. Try using `dropcli`'s `dropcli::install_dropbox_cli()`
+2. Follow the guide given at: 
+[Dropbox Headless Install](https://www.dropbox.com/install?os=lnx).
+
+## Option 1: Install via R
+
+This process is somewhat automated within R via:
+
+```{r dropbox_r, eval = FALSE}
+dropcli::install_dropbox_cli()
+```
+
+You will need to copy and paste the URL in your browser to link the dropbox
+account with your dropbox.
+
+Then, skip to the **Turn on `autostart`** subsection. 
+This immediately follows after Option 2.
+
+## Option 2: Install via Terminal
+
+To install in terminal, we'll need to perform a headless or text-only install.
+
+Dropbox provides a guide for it at: [Dropbox Headless Install](https://www.dropbox.com/install?os=lnx).
+However, you may need to resort to using Google's cache to access an up-to-date
+copy of the instructions  as Dropbox attempt to automatically detect and serve the
+appropriate client to you based on your current operating system.
+
+With that being said, the setup required is as follows:
+
+For 32-bit:
+
+```{r bash_32, eval = F, engine='bash'}
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
+```
+
+For 64-bit:
+
+```{r bash_64, eval = F, engine='bash'}
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+```
+
+Then, we launch from shell the Dropbox daemon out of the newly created `.dropbox-dist` folder.
+
+```{r dropboxd, eval = F, engine='bash'}
+~/.dropbox-dist/dropboxd
+```
+
+Here, you will be prompted to follow a URL. Please do so! Copy and paste it in
+your browser.
+
+Next, we'll download the `dropbox.py` interface via:
+
+```{r dropbox_py, eval = F}
+wget -O dropbox.py https://www.dropbox.com/download?dl=packages/dropbox.py
+```
+
+And voila! We're done with the install.
+
+## Turn on `autostart`!
+
+After the package has been installed, please turn on the `autostart` option.
+This makes sure that once the system user is logged in then the dropbox daemon
+is automatically running. In turn, this allows for the use of the CLI within R
+as the state of the system is destroyed after each call. 
+
+To turn on `autostart` use either:
+
+1. R via `dropcli::dropbox_autostart()`
+2. Shell via `~/dropbox.py autostart y`
+
+# Playing with Commands
+
+There are a few helpful commands
+
+| Command    | Description                                                  | `dropcli` Functions    |
+|------------|--------------------------------------------------------------|------------------------|
+| status     |  get current status of the dropboxd                          | `dropbox_status()`     |
+| throttle   |  set bandwidth limits for Dropbox                            |       **MIA**          | 
+| help       |  provide help                                                |`dropbox_help(topic)`   |
+| puburl     |  get public url of a file in your dropbox's public folder    |`dropbox_puburl(fp)`    |
+| stop       |  stop dropboxd                                               |`dropbox_stop()`        |
+| running    |  return whether dropbox is running                           |`dropbox_running()`     | 
+| start      |  start dropboxd                                              |`dropbox_start()`       |
+| filestatus |  get current sync status of one or more files                |`dropbox_filestatus()`  |
+| ls         |  list directory contents with current sync status            |      **MIA**           |
+| autostart  |  automatically start dropbox at login                        |`dropbox_autostart()`   |
+| exclude    |  ignores/excludes a directory from syncing                   |`     **MIA**           |
+| lansync    |  enables or disables LAN sync                                |      **MIA**           |
+| sharelink  |  get a shared link for a file in your dropbox                | `dropbox_sharelink(fp)`|
+| proxy      |  set proxy settings for Dropbox                              |      **MIA**           |
+
+
+# Teaching Example
+
+The seemingly rapid development of this interface was inspired by [Michael Levy's UseR2016 Talk](http://michaellevy.name/blog/useR-talk-on-teaching-R/) ([See the part at 7:20](https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/Teaching-R-to-200-people-in-a-week#time=07m20s)) that details live code piping from the instructor's computer.
+
+This alleviated my concerns for students not being able to:
+
+1. See the code being typed during [STAT 385 @ UIUC](http://stat385.thecoatlessprofessor.com/);
+2. Type code sufficiently fast;
+3. Avoid the sitting five feet from me while checking [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/)
+
+The idea presented was very straightforward: **Provide students with a 
+direct link to the code file that updates upon every save done by the file editor.** 
+
+To do that, there are a few things we need:
+
+1. A Linux machine ([No support for CLI exists on OS X or Windows](http://superuser.com/questions/678925/using-dropbox-from-the-command-line-on-osx))
+2. RStudio Server (Pro preferred)
+3. An obscure Dropbox knowledge base article entitled [How do I force a file or folder to download or render on dropbox.com?](https://www.dropbox.com/en/help/201)
+4. `dropcli`
+
+Alternatively, you can use a local Dropbox install and **manually** go through the
+process of enabling a Public document shared URL. Though, I found this to be
+the easier approach as I run the [STATS@UIUC Online Analytical Environment](https://rstudio.stat.illinois.edu/).
+
+With that being said, to generate such a link either:
+
+1. pick a file in the `Public` directory and use:
+```{r public_dir, eval = FALSE}
+dropcli::dropbox_puburl_live("path/to/Public/file.R")`
+```
+
+2. pick a file in the **not** in the `Public` directory and use:
+```{r non_public_dir, eval = FALSE}
+dropcli::dropbox_sharelink_live("path/to/file.R")`
+```
+
+Thus, you now have a shareable link. It doesn't look pretty, but it is shareable.
+
+At a later time, support may be added for using a URL shortener within *R*.
+

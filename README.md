@@ -17,6 +17,8 @@ As a result, all commands are run through:
 
 Please **note** this package is a work in progress (WIP) and is *not* suitable for production use or teaching without knowing what is going on.
 
+If you need a package for multiple platforms, please see the [rdrop2](https://github.com/karthik/rdrop2) by [Karthik Ram](https://github.com/karthik/). This package uses Dropbox's WebAPI via OAuth instead of an operating system specific package. The downside to this approach is the user *must* initiate the push instead of having a background process take care of it.
+
 Dropbox CLI Commands
 ====================
 
@@ -50,7 +52,7 @@ This alleviated my concerns for students not being able to:
 2.  Type code sufficiently fast;
 3.  Avoid the sitting five feet from me while checking [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/)
 
-The idea Michael presented was very straightforward: **Provide them with a direct link to the code file that updates upon ever save.**
+The idea presented was very straightforward: **Provide students with a direct link to the code file that updates upon every save done by the file editor.**
 
 To do that, there are a few things we need:
 
