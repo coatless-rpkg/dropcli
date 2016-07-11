@@ -91,7 +91,17 @@ The commands available via the Dropbox CLI are as follows:
 <tr class="odd">
 <td align="left">exclude</td>
 <td align="left">ignores/excludes a directory from syncing</td>
-<td align="left"><code>**MIA**           | | lansync    |  enables or disables LAN sync                                |      **MIA**           | | sharelink  |  get a shared link for a file in your dropbox                |</code>dropbox_sharelink(fp)`</td>
+<td align="left">s <strong>MIA</strong></td>
+</tr>
+<tr class="even">
+<td align="left">lansync</td>
+<td align="left">enables or disables LAN sync</td>
+<td align="left"><strong>MIA</strong></td>
+</tr>
+<tr class="odd">
+<td align="left">sharelink</td>
+<td align="left">get a shared link for a file in your dropbox</td>
+<td align="left"><code>dropbox_sharelink(fp)</code></td>
 </tr>
 <tr class="even">
 <td align="left">proxy</td>

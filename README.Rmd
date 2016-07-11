@@ -52,7 +52,7 @@ The commands available via the Dropbox CLI are as follows:
 | filestatus |  get current sync status of one or more files                |`dropbox_filestatus()`  |
 | ls         |  list directory contents with current sync status            |      **MIA**           |
 | autostart  |  automatically start dropbox at login                        |`dropbox_autostart()`   |
-| exclude    |  ignores/excludes a directory from syncing                   |`     **MIA**           |
+| exclude    |  ignores/excludes a directory from syncing                   | s     **MIA**           |
 | lansync    |  enables or disables LAN sync                                |      **MIA**           |
 | sharelink  |  get a shared link for a file in your dropbox                | `dropbox_sharelink(fp)`|
 | proxy      |  set proxy settings for Dropbox                              |      **MIA**           |
