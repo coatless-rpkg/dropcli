@@ -15,7 +15,7 @@ As a result, all commands are run through:
 ~/dropbox.py <command> <options>
 ```
 
-Please **note** this package is a work in progress (WIP) and is *not* suitable for production use or teaching without knowing what is going on.
+Please **note** this package is a work in progress (WIP) and is *not* suitable for production use or teaching without knowing what is going on. To help, a vignette was written and is available here: <https://github.com/coatless/dropcli/blob/master/vignettes/using_dropcli.Rmd>
 
 If you need a package for multiple platforms, please see the [rdrop2](https://github.com/karthik/rdrop2) by [Karthik Ram](https://github.com/karthik/). This package uses Dropbox's WebAPI via OAuth instead of an operating system specific package. The downside to this approach is the user *must* initiate the push instead of having a background process take care of it.
 
