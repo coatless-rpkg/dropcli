@@ -52,7 +52,7 @@ The commands available via the Dropbox CLI are as follows:
 | filestatus |  get current sync status of one or more files                |`dropbox_filestatus()`  |
 | ls         |  list directory contents with current sync status            |      **MIA**           |
 | autostart  |  automatically start dropbox at login                        |`dropbox_autostart()`   |
-| exclude    |  ignores/excludes a directory from syncing                   | s     **MIA**           |
+| exclude    |  ignores/excludes a directory from syncing                   |      **MIA**           |
 | lansync    |  enables or disables LAN sync                                |      **MIA**           |
 | sharelink  |  get a shared link for a file in your dropbox                | `dropbox_sharelink(fp)`|
 | proxy      |  set proxy settings for Dropbox                              |      **MIA**           |
@@ -69,7 +69,7 @@ The proposed approach alleviated my concerns for students not being able to:
 
 1. See the code being typed during [STAT 385 @ UIUC](http://stat385.thecoatlessprofessor.com/);
 2. Type code sufficiently fast;
-3. Avoid sitting five feet from me while checking their thousands of [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/)
+3. Avoid sitting five feet from me while checking their thousands of [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/) notifications
 
 
 The rest is history... 

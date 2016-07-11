@@ -91,7 +91,7 @@ The commands available via the Dropbox CLI are as follows:
 <tr class="odd">
 <td align="left">exclude</td>
 <td align="left">ignores/excludes a directory from syncing</td>
-<td align="left">s <strong>MIA</strong></td>
+<td align="left"><strong>MIA</strong></td>
 </tr>
 <tr class="even">
 <td align="left">lansync</td>
@@ -122,6 +122,6 @@ The proposed approach alleviated my concerns for students not being able to:
 
 1.  See the code being typed during [STAT 385 @ UIUC](http://stat385.thecoatlessprofessor.com/);
 2.  Type code sufficiently fast;
-3.  Avoid sitting five feet from me while checking their thousands of [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/)
+3.  Avoid sitting five feet from me while checking their thousands of [Pokemon Go](http://www.pokemon.com/us/pokemon-video-games/pokemon-go/) notifications
 
 The rest is history...
