@@ -39,22 +39,23 @@ of it.
 
 The commands available via the Dropbox CLI are as follows: 
 
-| Command    | Description                                                  |
-|------------|--------------------------------------------------------------|
-| status     |  get current status of the dropboxd                          |
-| throttle   |  set bandwidth limits for Dropbox                            |
-| help       |  provide help                                                |
-| puburl     |  get public url of a file in your dropbox's public folder    |
-| stop       |  stop dropboxd                                               |
-| running    |  return whether dropbox is running                           |
-| start      |  start dropboxd                                              |
-| filestatus |  get current sync status of one or more files                |
-| ls         |  list directory contents with current sync status            |
-| autostart  |  automatically start dropbox at login                        |
-| exclude    |  ignores/excludes a directory from syncing                   |
-| lansync    |  enables or disables LAN sync                                |
-| sharelink  |  get a shared link for a file in your dropbox                |
-| proxy      |  set proxy settings for Dropbox                              |
+| Command    | Description                                                  | `dropcli` Functions    |
+|------------|--------------------------------------------------------------|------------------------|
+| status     |  get current status of the dropboxd                          | `dropbox_status()`     |
+| throttle   |  set bandwidth limits for Dropbox                            |       **MIA**          | 
+| help       |  provide help                                                |`dropbox_help(topic)`   |
+| puburl     |  get public url of a file in your dropbox's public folder    |`dropbox_puburl(fp)`    |
+| stop       |  stop dropboxd                                               |`dropbox_stop()`        |
+| running    |  return whether dropbox is running                           |`dropbox_running()`     | 
+| start      |  start dropboxd                                              |`dropbox_start()`       |
+| filestatus |  get current sync status of one or more files                |`dropbox_filestatus()`  |
+| ls         |  list directory contents with current sync status            |      **MIA**           |
+| autostart  |  automatically start dropbox at login                        |`dropbox_autostart()`   |
+| exclude    |  ignores/excludes a directory from syncing                   |`     **MIA**           |
+| lansync    |  enables or disables LAN sync                                |      **MIA**           |
+| sharelink  |  get a shared link for a file in your dropbox                | `dropbox_sharelink(fp)`|
+| proxy      |  set proxy settings for Dropbox                              |      **MIA**           |
+
 
 # Acknowledgement
 

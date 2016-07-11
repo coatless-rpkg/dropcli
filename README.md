@@ -24,22 +24,82 @@ Dropbox CLI Commands
 
 The commands available via the Dropbox CLI are as follows:
 
-| Command    | Description                                              |
-|------------|----------------------------------------------------------|
-| status     | get current status of the dropboxd                       |
-| throttle   | set bandwidth limits for Dropbox                         |
-| help       | provide help                                             |
-| puburl     | get public url of a file in your dropbox's public folder |
-| stop       | stop dropboxd                                            |
-| running    | return whether dropbox is running                        |
-| start      | start dropboxd                                           |
-| filestatus | get current sync status of one or more files             |
-| ls         | list directory contents with current sync status         |
-| autostart  | automatically start dropbox at login                     |
-| exclude    | ignores/excludes a directory from syncing                |
-| lansync    | enables or disables LAN sync                             |
-| sharelink  | get a shared link for a file in your dropbox             |
-| proxy      | set proxy settings for Dropbox                           |
+<table>
+<colgroup>
+<col width="12%" />
+<col width="62%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Command</th>
+<th align="left">Description</th>
+<th align="left"><code>dropcli</code> Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">status</td>
+<td align="left">get current status of the dropboxd</td>
+<td align="left"><code>dropbox_status()</code></td>
+</tr>
+<tr class="even">
+<td align="left">throttle</td>
+<td align="left">set bandwidth limits for Dropbox</td>
+<td align="left"><strong>MIA</strong></td>
+</tr>
+<tr class="odd">
+<td align="left">help</td>
+<td align="left">provide help</td>
+<td align="left"><code>dropbox_help(topic)</code></td>
+</tr>
+<tr class="even">
+<td align="left">puburl</td>
+<td align="left">get public url of a file in your dropbox's public folder</td>
+<td align="left"><code>dropbox_puburl(fp)</code></td>
+</tr>
+<tr class="odd">
+<td align="left">stop</td>
+<td align="left">stop dropboxd</td>
+<td align="left"><code>dropbox_stop()</code></td>
+</tr>
+<tr class="even">
+<td align="left">running</td>
+<td align="left">return whether dropbox is running</td>
+<td align="left"><code>dropbox_running()</code></td>
+</tr>
+<tr class="odd">
+<td align="left">start</td>
+<td align="left">start dropboxd</td>
+<td align="left"><code>dropbox_start()</code></td>
+</tr>
+<tr class="even">
+<td align="left">filestatus</td>
+<td align="left">get current sync status of one or more files</td>
+<td align="left"><code>dropbox_filestatus()</code></td>
+</tr>
+<tr class="odd">
+<td align="left">ls</td>
+<td align="left">list directory contents with current sync status</td>
+<td align="left"><strong>MIA</strong></td>
+</tr>
+<tr class="even">
+<td align="left">autostart</td>
+<td align="left">automatically start dropbox at login</td>
+<td align="left"><code>dropbox_autostart()</code></td>
+</tr>
+<tr class="odd">
+<td align="left">exclude</td>
+<td align="left">ignores/excludes a directory from syncing</td>
+<td align="left"><code>**MIA**           | | lansync    |  enables or disables LAN sync                                |      **MIA**           | | sharelink  |  get a shared link for a file in your dropbox                |</code>dropbox_sharelink(fp)`</td>
+</tr>
+<tr class="even">
+<td align="left">proxy</td>
+<td align="left">set proxy settings for Dropbox</td>
+<td align="left"><strong>MIA</strong></td>
+</tr>
+</tbody>
+</table>
 
 Acknowledgement
 ===============
