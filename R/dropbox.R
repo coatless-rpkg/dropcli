@@ -164,17 +164,9 @@ dropbox_help = function(topic = NULL){
 #' dropbox_puburl("path/to/Public/file.R")
 #' }
 dropbox_puburl = function(fp){
-    if( isTRUE(grepl("\\bPublic\\b",fp)) ) {
-
-        if(file.exists(fp)){
-            dropbox_command(paste0("puburl ", fp))
-        } else {
-            stop("Error: The requested file does not exist on the disk!")
-        }
-
-    } else {
-        stop("Error: File is not in the `Public` folder. Please use `dropbox_sharelink()`!")
-    }
+    .Deprecated("dropbox_sharelink",
+                msg = "On September 1st, 2017, the Dropbox Public folder was deprecated.")
+    dropbox_sharelink(fp)
 }
 
 #' Enable Live View of Dropbox File in Browser
@@ -195,10 +187,12 @@ dropbox_puburl = function(fp){
 #' @examples
 #' \dontrun{
 #' # Return the file with live streaming enabled
-#' dropbox_puburl_live("path/to/Public/file.R")
+#' dropbox_live_puburl("path/to/Public/file.R")
 #' }
-dropbox_puburl_live = function(fp){
-    paste0(dropbox_puburl(fp), "?dl=0")
+dropbox_live_puburl = function(fp){
+    .Deprecated(dropbox_sharelink_live,
+                msg = "On September 1st, 2017, the Dropbox Public folder was deprecated.")
+    dropbox_sharelink_live(fp)
 }
 
 
@@ -216,16 +210,10 @@ dropbox_puburl_live = function(fp){
 #' }
 dropbox_sharelink = function(fp){
 
-    if( !isTRUE(grepl("\\bPublic\\b",fp)) ) {
-
-        if(file.exists(fp)){
-            dropbox_command(paste0("sharelink ", fp))
-        } else {
-            stop("Error: The requested file does not exist on the disk!")
-        }
-
+    if(file.exists(fp)){
+        dropbox_command(paste0("sharelink ", fp))
     } else {
-        stop("Error: File is located in the `Public` folder. Please use `dropbox_publink()`!")
+        stop("Error: The requested file does not exist on the disk!")
     }
 }
 
@@ -234,7 +222,12 @@ dropbox_sharelink = function(fp){
 #' @inheritParams dropbox_sharelink
 #' @details
 #' To get the "live" aspect of the code view,
-#' we opt to set the shared link to have a \code{"?dl=0"}.
+#' we opt to:
+#'
+#' \itemize{
+#'     \item Switch \code{www.} with \code{dl.} at the beginning of URL to avoid Dropbox Viewer.
+#'     \item Set the shared link to have a \code{"?dl=0"}.
+#' }.
 #' This forces the file to only show in the browser.
 #' For more details please see:
 #' \href{https://www.dropbox.com/en/help/201}{How do I force a file or folder to download or render on dropbox.com?}
@@ -246,9 +239,12 @@ dropbox_sharelink = function(fp){
 #' @examples
 #' \dontrun{
 #' # Return the file with live streaming enabled
-#' dropbox_sharelink_live("path/to/file.R")
+#' dropbox_live_sharelink("path/to/file.R")
 #' }
-dropbox_sharelink_live = function(fp){
-    paste0(dropbox_sharelink(fp), "?dl=0")
+dropbox_live_sharelink = function(fp){
+
+    val = dropbox_sharelink(fp)
+
+    gsub("\\bwww\\.\\b", "dl.", val)
 }
 
