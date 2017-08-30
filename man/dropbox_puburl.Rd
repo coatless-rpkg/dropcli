@@ -21,4 +21,3 @@ The file must be located \strong{within} the \code{Public} directory
 dropbox_puburl("path/to/Public/file.R")
 }
 }
-

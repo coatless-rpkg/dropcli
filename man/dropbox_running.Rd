@@ -19,4 +19,3 @@ Determines whether or not the dropbox daemon is running.
 dropbox_running()
 }
 }
-

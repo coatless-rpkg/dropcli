@@ -15,4 +15,3 @@ Retrieves the present daemon status
 dropbox_status()
 }
 }
-

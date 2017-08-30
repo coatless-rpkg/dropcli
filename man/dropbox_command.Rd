@@ -26,4 +26,3 @@ Enables the use of the system terminal's
 dropbox_command("start")
 }
 }
-

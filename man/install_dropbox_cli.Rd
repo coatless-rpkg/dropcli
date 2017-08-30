@@ -21,4 +21,3 @@ Attempts to install Dropbox CLI support in the default location of
 install_dropbox_cli()
 }
 }
-
