@@ -164,17 +164,9 @@ dropbox_help = function(topic = NULL){
 #' dropbox_puburl("path/to/Public/file.R")
 #' }
 dropbox_puburl = function(fp){
-    if( isTRUE(grepl("\\bPublic\\b",fp)) ) {
-
-        if(file.exists(fp)){
-            dropbox_command(paste0("puburl ", fp))
-        } else {
-            stop("Error: The requested file does not exist on the disk!")
-        }
-
-    } else {
-        stop("Error: File is not in the `Public` folder. Please use `dropbox_sharelink()`!")
-    }
+    .Deprecated("dropbox_sharelink",
+                msg = "On September 1st, 2017, the Dropbox Public folder was deprecated.")
+    dropbox_sharelink(fp)
 }
 
 #' Enable Live View of Dropbox File in Browser
@@ -198,7 +190,9 @@ dropbox_puburl = function(fp){
 #' dropbox_puburl_live("path/to/Public/file.R")
 #' }
 dropbox_puburl_live = function(fp){
-    paste0(dropbox_puburl(fp), "?dl=0")
+    .Deprecated(dropbox_sharelink_live,
+                msg = "On September 1st, 2017, the Dropbox Public folder was deprecated.")
+    dropbox_sharelink_live(fp)
 }
 
 
@@ -216,16 +210,10 @@ dropbox_puburl_live = function(fp){
 #' }
 dropbox_sharelink = function(fp){
 
-    if( !isTRUE(grepl("\\bPublic\\b",fp)) ) {
-
-        if(file.exists(fp)){
-            dropbox_command(paste0("sharelink ", fp))
-        } else {
-            stop("Error: The requested file does not exist on the disk!")
-        }
-
+    if(file.exists(fp)){
+        dropbox_command(paste0("sharelink ", fp))
     } else {
-        stop("Error: File is located in the `Public` folder. Please use `dropbox_publink()`!")
+        stop("Error: The requested file does not exist on the disk!")
     }
 }
 
