@@ -21,4 +21,3 @@ The file must be located \strong{outside} of the \code{Public} directory
 dropbox_sharelink("path/to/file.R")
 }
 }
-

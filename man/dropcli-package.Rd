@@ -4,7 +4,7 @@
 \name{dropcli-package}
 \alias{dropcli}
 \alias{dropcli-package}
-\title{Interface with Linux Dropbox CLI}
+\title{dropcli: Interface with Linux Dropbox CLI}
 \description{
 Provides the ability to use R to interface with the
 Linux Dropbox Command Line Interface.
@@ -12,4 +12,7 @@ Linux Dropbox Command Line Interface.
 \details{
 The package is in its initial stage and is not ready for development
 }
+\author{
+\strong{Maintainer}: James Balauta \email{balamut2@illinois.edu}
 
+}

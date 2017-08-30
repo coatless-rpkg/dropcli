@@ -15,4 +15,3 @@ Turns the dropbox daemon off
 dropbox_stop()
 }
 }
-
